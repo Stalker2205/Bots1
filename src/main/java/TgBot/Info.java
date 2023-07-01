@@ -4,5 +4,5 @@ import java.util.Stack;
 
 public class Info {
     public static String Token = "";
-    public static String BotName = "anixian_bot";
+    public static String BotName = "";
 }
