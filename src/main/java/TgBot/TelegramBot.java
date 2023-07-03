@@ -4,28 +4,19 @@ import netscape.javascript.JSObject;
 import org.json.JSONObject;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.GetFile;
-import org.telegram.telegrambots.meta.api.methods.groupadministration.SetChatPhoto;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.meta.api.objects.*;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboard;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardButton;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.InetAddress;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+
 
 public class TelegramBot extends TelegramLongPollingBot {
 
@@ -45,8 +36,11 @@ public class TelegramBot extends TelegramLongPollingBot {
         replyKeyboardMarkup.setSelective(true);
         replyKeyboardMarkup.setResizeKeyboard(true);
         replyKeyboardMarkup.setOneTimeKeyboard(false);
-        SendPhoto photo1 = new SendPhoto();
-        Message message = update.getMessage();
+
+//        SendPhoto photo1 = new SendPhoto();
+//        Message message = update.getMessage();
+//        InputFile inputs = new InputFile();
+
 //        if (message.hasPhoto())
 //        {
 //            System.out.println("photo");
@@ -56,6 +50,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 //                GetFile getFile = new GetFile();
 //                getFile.setFileId(photo.getFileId());
 //                System.out.println(getFile.getFileId().toString());
+//
 //                URL url;
 //                URL url2;
 //
@@ -66,33 +61,49 @@ public class TelegramBot extends TelegramLongPollingBot {
 //
 //                    JSONObject jresult = new JSONObject(Fileresponce);
 //                    JSONObject path = jresult.getJSONObject("result");
+//
 //                    String PhotoPath = path.getString("file_path");
+//                    Long FileSize = path.getLong("file_size");
+//                    String FuniqueID = path.getString("file_unique_id");
+//
+//
 //                    System.out.println(PhotoPath);
 //                    buf.close();
 //
 //                    url2 = new URL("https://api.telegram.org/file/bot"+Info.Token+"/"+PhotoPath);
 //                    BufferedReader buf1 = new BufferedReader(new InputStreamReader(url2.openStream()));
+//                    //String stg = "https://api.telegram.org/file/bot"+Info.Token+"/"+PhotoPath;
 //
-//                InputFile inputs = new InputFile();
-//                    Scanner scanner = new Scanner("https://api.telegram.org/file/bot"+Info.Token+"/"+PhotoPath);
+//                    File file = new File(getFile.getFileId().toString(),FuniqueID,FileSize,"https://api.telegram.org/file/bot"+Info.Token+"/"+PhotoPath);
 //
-//                    //inputs.setMedia(new File("https://api.telegram.org/file/bot"+Info.Token+"//"+PhotoPath));
-//                    inputs.setMedia(scanner.toString());
-//                System.out.println(url.getPath());
-//                System.out.println("https://api.telegram.org/file/bot"+Info.Token+"//"+PhotoPath);
-//                System.out.println(scanner.toString());
+//                    inputs.setMedia(new java.io.File("https://api.telegram.org/file/bot"+Info.Token+"/"+PhotoPath));
+//
+//
+//
+//
+//                    // inputs.setMedia(new File("https://api.telegram.org/file/bot"+Info.Token+"//"+PhotoPath));
+//
+//                    System.out.println("Для Json -https://api.telegram.org/bot"+ Info.Token +"/getFile?file_id="+getFile.getFileId().toString());
+//                System.out.println("путь к фотке -" + url.getPath());
+//                System.out.println("сслыка на скачку - https://api.telegram.org/file/bot"+Info.Token+"/"+PhotoPath);
 //
 //                photo1.setChatId(chatID);
 //                photo1.setPhoto(inputs);
+//
 //                } catch (IOException e) {
 //                    throw new RuntimeException(e);
 //                }
+//
+//                SendPhoto nf = new SendPhoto();
+//               InputFile photo32 = new InputFile();
 //
 //        }
 //        else
 //        {
 //            System.out.println("noPhoto");
 //        }
+//        System.out.println("не зашел");
+
 //        System.out.println("не зашел");
      String Text = update.getMessage().getText();
 switch (Text)
@@ -133,7 +144,7 @@ switch (Text)
 
 
         try {
-            //this.execute(photo1);
+           // this.execute(photo1);
             this.execute(sendMessage);
         } catch (TelegramApiException e) {
             throw new RuntimeException(e);

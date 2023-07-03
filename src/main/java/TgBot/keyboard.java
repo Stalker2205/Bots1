@@ -18,13 +18,13 @@ public class keyboard {
         KeyboardRow FirstRow = new KeyboardRow();
         switch (Com)
         {
-//            case "/start":
-//                keyboardRows.clear();
-//                FirstRow.add(new KeyboardButton("/start"));
-//                FirstRow.add(new KeyboardButton("/help"));
-//                FirstRow.add(new KeyboardButton("/Дати 5"));
-//                keyboardRows.add(FirstRow);
-//                break;
+            case "/start":
+                keyboardRows.clear();
+                FirstRow.add(new KeyboardButton("/start"));
+                FirstRow.add(new KeyboardButton("/help"));
+                FirstRow.add(new KeyboardButton("/Дати 5"));
+                keyboardRows.add(FirstRow);
+                break;
             case "/help":
                 keyboardRows.clear();
                 FirstRow.add(new KeyboardButton("/help"));
